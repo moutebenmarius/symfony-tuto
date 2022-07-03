@@ -1,0 +1,71 @@
+{% extends 'enseignant_d/index.html.twig' %}
+
+{% block dynamic %}
+	<div
+		class="content-wrapper">
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h6>
+							Avertissement d'absence
+						</h6>
+					</div>
+
+				</div>
+			</div>
+			<!-- /.container-fluid -->
+		</section>
+
+		<!-- Main content -->
+		<section class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-12">
+						<div class="card">
+
+							<div class="card-header"></div>
+
+							<!-- /.card-header -->
+							<div class="card-body">
+								{% for message in app.flashes('warning') %}
+									<div class="alert alert-warning">
+										{{ message }}
+									</div>
+								{% endfor %}
+								<table class="table">
+									<thead>
+										<tr>
+											<th>Nom</th>
+											<th>Prénom</th>
+											<th>Absent</th>
+										</tr>
+									</thead>
+									<tbody>
+                                        {% for eleve in eleves %}
+                                            <tr>
+                                                <td>{{ eleve.nom }}</td>
+                                                <td>{{ eleve.prenom }}</td>
+                                                <td><a href="{{ path('absent',{'matricule': eleve.matricule, 'id':seance.id }) }}">absent</a></td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+								</table>
+							</div>
+							<!-- /.card-body -->
+						</div>
+						<!-- /.card -->
+
+
+						<!-- /.card -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+			</div>
+			<!-- /.container-fluid -->
+		</section>
+		<!-- /.content -->
+	</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'coach/index.html.twig' %}
+{% block contenu %}
+	<div class="card-header bg-primary text-white">
+							Mon Profil
+						</div>
+						<div class="card-body">
+							{% for message in app.flashes('success') %}
+								<div class="alert alert-success">
+									{{ message }}
+								</div>
+							{% endfor %}
+							{{ form_start(form) }}
+							{{ form_widget(form) }}
+							<button type="submit" class="btn btn-sm btn-primary mt-2 btn-block">Mise à jour</button>
+							{{ form_end(form) }}
+						</div>
+{% endblock %}

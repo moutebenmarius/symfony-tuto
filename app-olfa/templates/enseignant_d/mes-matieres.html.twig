@@ -1,0 +1,86 @@
+{% extends 'enseignant_d/index.html.twig' %}
+
+{% block dynamic %}
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Liste des Matières</h1>
+          </div>
+          
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+
+              <div class="card-header">
+              
+        
+                
+              </div>
+               
+              <!-- /.card-header -->
+              <div class="card-body">
+                  {% for message in app.flashes('warning') %}
+            <div class="alert alert-warning">
+                {{ message }}
+            </div>
+            {% endfor %}
+<table class="table">
+        <thead>
+            <tr>
+                <th>Libelle</th>
+                <th>Classe</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item in matieres %}
+        
+            <tr>
+                
+                <td>{{ item.matiere.libelle }}</td>
+                <td><a href="{{ path('liste_matiere_par_classe', {"id":item.matiere.classe.id}) }}">{{ item.matiere.classe.niveau.niveau }} {{ item.matiere.classe.section.section }}</a></td>
+                <td>
+                    <a href="{{ path('creer_seance', {'id': item.matiere.id }) }}" class="btn btn-primary">Créer seance</a>&nbsp;
+                    {% if item.ajouter %}
+                    <a href="{{ path('parti_matiere', {'id': item.matiere.id})}}" class="btn btn-info">Partie matière</a>&nbsp; 
+                    {% else %}
+
+                    <a href="{{ path('modifier_pm', {'id': item.matiere.id})}}" class="btn btn-warning">Modifier</a>&nbsp; 
+                    {% endif %}
+                    <a href="{{ path('detailler_pm', {'id': item.matiere.id})}}" class="btn btn-outline-primary">Voir</a>&nbsp; 
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+           
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+{% endblock %}

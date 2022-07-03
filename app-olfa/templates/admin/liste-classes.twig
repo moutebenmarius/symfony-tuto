@@ -1,0 +1,81 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block dynamic %}
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Gestion des classes</h1>
+          </div>
+          
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Liste des classes</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+              {% for message in app.flashes('info') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>Classe</th>
+                    <th>Actions</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+             {% for classe in classes %}
+                    <tr>
+                    <td>
+                      <a href="{{ path('liste_eleves_classe',{'id':classe.id}) }}"> 
+                      {% if classe.section and classe.niveau %}
+                        {{ classe.niveau.niveau }} {{ classe.section.section }}
+                      {% elseif not classe.section and classe.niveau %}
+                            {{ classe.niveau.niveau }}
+                      {% elseif classe.section and not classe.niveau %}
+                           {{ classe.section.section }}
+                          {% endif %}
+                      </a>
+                    </td>
+                    <td>
+                        <a href="{{ path('app_classe_edit', {"id": classe.id}) }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                         <a href="{{ path('archiver_classe', {"id": classe.id}) }}" class="btn btn-danger"><i class="fa fa-archive"></i></a>&nbsp;
+                    </td>
+                    
+                  </tr>
+
+                  {% endfor %}
+                  </tbody>
+                  
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+           
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+{% endblock %}

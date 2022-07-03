@@ -1,0 +1,104 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block dynamic %}
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Gestion des éléves</h1>
+          </div>
+          
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Liste des éléves</h3>
+
+              </div>
+              <div class="card-body">
+                  <form action="/eleve/chercher" method="get" class="form-inline">
+                    <div class="form-group">
+                      <input type="text"  class="form-control" placeholder="recherche ..." name="q">
+                    </div>
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-sm btn-primary ml-2"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </div>
+                  </form>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+              {% for message in app.flashes('info') %}
+            <div class="alert alert-success">
+                {{ message }}
+               
+            </div>
+        {% endfor %}
+         {% for message in app.flashes('warning') %}
+                  <div class="alert alert-warning">
+                      {{ message }}
+                  </div>
+          {% endfor %}
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                     <th>Classe</th>
+                    <th>Actions</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+             
+                 {% for eleve in eleves %}
+                   <tr>
+                    <td>{{ eleve.nom }}</td>
+                     <td>{{ eleve.prenom }}</td>
+                      <td> 
+                         {% if eleve.classe.section and eleve.classe.niveau %}
+                              {{ eleve.classe.niveau.niveau }} {{ eleve.classe.section.section }}
+                         {% elseif not eleve.classe.section and eleve.classe.niveau %}
+                            {{ eleve.classe.niveau.niveau }}
+                         {% elseif eleve.classe.section and not eleve.classe.niveau %}
+                           {{ eleve.classe.section.section }}
+                         {% endif %}</td>
+                    <td>
+                         <a href="{{ path('app_eleve_show', {"id": eleve.id}) }}" class="btn btn-info"><i class="fa fa-eye"></i></a>&nbsp;
+                          <a href="{{ path('app_eleve_edit', {'id': eleve.id}) }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                         <a href="{{ path('archiver_eleve', {'id': eleve.id}) }}" class="btn btn-danger"><i class="fa fa-archive"></i></a>&nbsp;
+                    </td>
+                    
+                  </tr>
+                 {% endfor %}
+                  </tbody>
+                  
+                </table>
+                 {% if retour == true %}
+                    <a class="btn btn-primary btn-sm mt-3" href="{{ path('liste_eleves') }}">Retour</a>
+                  {% endif %}
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+           
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+{% endblock %}

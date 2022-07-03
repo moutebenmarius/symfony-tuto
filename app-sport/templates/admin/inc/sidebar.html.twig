@@ -1,0 +1,74 @@
+
+
+ <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ path('app_admin') }}">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    
+                </div>
+                <div class="sidebar-brand-text mx-3">Administrateur</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('app_admin') }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Statistique</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Menu Principal
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            
+
+            <!-- Nav Item - Charts -->
+           
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('actualite') }}">
+                    <i class="fas fa-2x fa-rss"></i>
+                    <span>Actualité</span></a>
+            </li>
+			.
+			  <li class="nav-item">
+                <a class="nav-link" href="{{ path('gestion_coach') }}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Gestion coachs</span></a>
+            </li>
+
+			 <li class="nav-item">
+                <a class="nav-link" href="{{ path('gestion_adherents') }}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Gestion adhérents</span></a>
+            </li>
+
+			 <li class="nav-item">
+                <a class="nav-link" href="{{ path('consulter_tournois') }}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Consulter Tournois</span></a>
+            </li>
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+           
+
+        </ul>

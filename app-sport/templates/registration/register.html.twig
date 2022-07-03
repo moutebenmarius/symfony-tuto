@@ -1,0 +1,49 @@
+{% extends 'site/index.html.twig' %}
+
+{% block title %}inscription{% endblock %}
+
+{% block dynamic %}
+    <!-- Start Banner -->
+        <div class="banner-outer inner-banner contact-us-banner">
+            <span class="banner-shadow"></span>
+            <div class="container">
+                <div class="content" data-aos="fade-down">
+                    <h1>CONTACT US</h1>
+                    <div class="breadcrumbs_outer">
+                        <div class="container">
+                            <ul class="breadcrumbs">
+                                <li><a href="index-2.html">Home</a></li>
+                                <li>Contact Us</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Banner --> 
+
+      
+
+        <!-- Start Contact sec -->
+        <div class="contact-outer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-7 col-xs-12">
+                        <div class="form-wrapper">
+                            <h3>Inscription</h3>
+                             {{ form_start(registrationForm) }}
+                             {{ form_widget(registrationForm) }}
+                                <button type="submit" class="btn btn-primary btn-block mt-5">Inscrire</button>
+                            {{ form_end(registrationForm) }}
+                             <div class="msg"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-xs-12">
+                        <div class="contact-info clearfix">
+                            <img src="{{ asset('image-sport.jpg') }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

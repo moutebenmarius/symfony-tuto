@@ -1,0 +1,85 @@
+
+{% extends 'proviseur/index.html.twig' %}
+{% block dynamic %}
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Liste des affectations</h1>
+          </div>
+          
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Liste des affectations</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                {% for message in app.flashes('info') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        {% for message in app.flashes('warning') %}
+            <div class="alert alert-warning">
+                {{ message }}
+            </div>
+        {% endfor %}
+                <table class="table">
+        <thead>
+            <tr>
+                <th>Enseignant</th>
+                <th>Classe</th>
+                <th>Matière</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for affectation in affectations %}
+            <tr>
+                <td>{{ affectation.enseignant.nom }} {{ affectation.enseignant.prenom }}</td>
+                <td>{{ affectation.classe.section.section }} {{ affectation.classe.niveau.niveau }}</td>
+                <td>{{ affectation.matiere.libelle }}</td>
+                <td>
+                    {# <a href="{{ path('app_affectation_show', {'id': affectation.id}) }}" class="btn btn-info"><i class="fa fa-eye"></i></a>&nbsp;  #}
+                        {#  <a href="{{ path('archiver_eleve', {'id': eleve.id}) }}" class="btn btn-danger"><i class="fa fa-archive"></i></a>&nbsp;  #}
+                    {#  #}<a href="{{ path('app_affectation_edit', {'id': affectation.id}) }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                    <a href="{{ path('archiver_affectation', {'id': affectation.id}) }}" class="btn btn-danger"><i class="fa fa-archive"></i></a>&nbsp; 
+                    
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+           
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+{% endblock %}

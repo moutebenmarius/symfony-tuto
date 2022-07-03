@@ -1,0 +1,64 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block dynamic %}
+	<div
+		class="content-wrapper">
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h1>Statistiques</h1>
+					</div>
+
+				</div>
+			</div>
+			<!-- /.container-fluid -->
+		</section>
+
+		<!-- Main content -->
+		<section class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-12">
+						<div class="card">
+
+							<div class="card-header"></div>
+
+							<table class="table">
+								<thead>
+									<tr>
+										<th>Trés Satisfait</th>
+										<th>Satisfait</th>
+										<th>Neutre</th>
+										<th>Pas Satisfait</th>
+										<th>Pas de tous Satisfait</th>
+									</tr>
+								</thead>
+								<tbody>
+                  <tr class="text-center">
+                    <td>{{ stats[0] }}</td>
+                    <td>{{ stats[1] }}</td>
+                    <td>{{ stats[2] }}</td>
+                    <td>{{ stats[3] }}</td>
+                    <td>{{ stats[4] }}</td>
+                  </tr>
+                </tbody>
+							</table>
+              <a href="{{ path('statistiques') }}" style="text-decoration: underline">retour</a>
+						</div>
+						<!-- /.card-body -->
+					</div>
+					<!-- /.card -->
+
+
+					<!-- /.card -->
+				</div>
+				<!-- /.col -->
+			</div>
+			<!-- /.row -->
+		</div>
+		<!-- /.container-fluid -->
+	</section>
+	<!-- /.content -->
+</div>{% endblock %}

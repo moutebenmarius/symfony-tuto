@@ -1,0 +1,62 @@
+{% extends 'adherent/index.html.twig' %}
+
+{% block title %}Bienvenue !
+{% endblock %}
+
+{% block contenu %}
+	<div class="card">
+		<div class="card-header bg-primary text-white text-center">
+			Mes Réservations
+		</div>
+		<div class="card-body">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						{% for message in app.flashes('success') %}
+							<div class="alert alert-success">
+								{{ message }}
+							</div>
+						{% endfor %}
+
+						
+						<div class="card-body">
+							
+							<table class="table">
+								<thead>
+									<tr>
+                                        <th>Type de seance</th>
+                                        <th>Coach</th>
+										<th>Date Séance</th>
+                                        <th>Date Réservation</th>
+									    <th>Etat</th>
+										
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+								{% for reservation in reservations %}
+									<tr>
+										<td>{{ reservation.seance.typeSeance  }}</td>
+                                        <td>{{ reservation.seance.coach.nom  }} {{ reservation.seance.coach.prenom  }}</td>
+										<td>{{ reservation.seance.dateSeance | date('d-m-Y H:i')  }}</td>
+                                        <td>{{ reservation.dateReservation | date('d-m-Y H:i')  }}</td>
+                                        <td>{{ reservation.statut  }}</td>
+                                        <td>
+										{% if reservation.statut == "en cours" %}
+
+											<a href="{{ path('annuler_reservation', {'id': reservation.id} ) }}" class="btn btn-sm btn-danger">annuler
+										{% endif  %}
+											
+											</td>
+									</tr>
+								{% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+{% endblock %}

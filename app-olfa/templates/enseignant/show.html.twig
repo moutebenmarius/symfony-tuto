@@ -1,0 +1,91 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Edit Utilisateur{% endblock %}
+
+{% block dynamic %}
+    <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+          </div>
+          
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+
+             <table class="table">
+                  <tbody>
+                    
+                      <tr>
+                          <th>CIN</th>
+                          <td>{{ utilisateur.cin }}</td>
+                      </tr>
+                    
+                    
+                      <tr>
+                          <th>Nom</th>
+                          <td>{{ utilisateur.nom }}</td>
+                      </tr>
+                      <tr>
+                          <th>Prénom</th>
+                          <td>{{ utilisateur.prenom }}</td>
+                      </tr>
+                      <tr>
+                          <th>Gender</th>
+                          <td>{{ utilisateur.genre }}</td>
+                      </tr>
+                      <tr>
+                          <th>Téléphone</th>
+                          <td>{{ utilisateur.telephone }}</td>
+                      </tr>
+                      <tr>
+                          <th>Email</th>
+                          <td>{{ utilisateur.email }}</td>
+                      </tr>
+                    
+                      <tr>
+                          <th>Spécialité</th>
+                          <td>{{ utilisateur.specialite }}</td>
+                      </tr>
+                      <tr>
+                          <th>Date Naissance</th>
+                          <td>{{ utilisateur.dateNaissance ? utilisateur.dateNaissance|date('Y-m-d') : '' }}</td>
+                      </tr>
+                      <tr>
+                          <th>Diplome</th>
+                          <td><a target="_blank" href="{{ asset('diplomes/'~utilisateur.diplome) }}">télécharger</a></td>
+                      </tr>
+                      <tr>
+                         
+                          <td><a href="{{ path('liste_enseignants') }}" class="nav navlink">retour a la liste des enseignants</a></td>
+                      </tr>
+                  </tbody>
+                </table>
+
+
+            </div>
+            <!-- /.card -->
+
+           
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+   
+{% endblock %}
+

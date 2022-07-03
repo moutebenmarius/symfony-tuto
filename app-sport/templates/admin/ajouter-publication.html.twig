@@ -1,0 +1,24 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Hello AdminController!
+{% endblock %}
+
+
+{% block contenu %}
+	<div class="card">
+		<div class="card-header bg-primary text-white text-center">
+			Ajouter à l'actualité
+		</div>
+		<div class="card-body">
+			{% for message in app.flashes('success') %}
+				<div class="alert alert-success">
+					{{ message }}
+				</div>
+			{% endfor %}
+			{{ form_start(form) }}
+			{{ form_widget(form) }}
+			<button type="submit" class="btn btn-sm btn-primary mt-2 btn-block">Confirmer</button>
+			{{ form_end(form) }}
+		</div>
+	</div>
+{% endblock %}

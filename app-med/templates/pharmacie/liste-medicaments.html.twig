@@ -1,0 +1,78 @@
+{% extends 'pharmacie/index.html.twig' %}
+{% block content %}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Liste des medicaments</h1>
+          </div>
+          
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Liste des medicaments</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <a href="{{ path('ajouter_medicament') }}" class="btn btn-success">Ajouter medicament</a>
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>Libelle</th>
+                    <th>Description</th>
+                    <th>Disponible</th>
+                    <th>Actions</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    {% for medi in medicaments %}
+                  <tr>
+                    <td>{{ medi.libelle }}</td>
+                    <td>{{ medi.description }}</td>
+                     <td>{{ medi.estExiste == true ?  'Oui': 'Non' }}</td>
+                     <td>
+                        {% if medi.estExiste == true %}
+                            <a class="btn btn-sm btn-warning" href="{{ path('set_pas_diponible', {'id': medi.id}) }}">n'est pas disponible</a>
+                        {% else %}
+                             <a class="btn btn-sm btn-success" href="{{ path('est_disponible', {'id': medi.id}) }}">disponible</a>
+                        {% endif %}
+                     </td>
+                  </tr>
+                  {% endfor %}
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Numéro Tél</th>
+                    <th>Actions</th>
+                  </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+           
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+{% endblock %}

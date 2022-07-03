@@ -1,0 +1,102 @@
+{% extends 'site/index.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block dynamic %}
+ 
+     <section id="courses-part" class="pt-120 pb-120 gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="courses-top-search">
+                        <ul class="nav float-left" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="active" id="courses-grid-tab" data-toggle="tab" href="#courses-grid" role="tab" aria-controls="courses-grid" aria-selected="true"><i class="fa fa-th-large"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="courses-list-tab" data-toggle="tab" href="#courses-list" role="tab" aria-controls="courses-list" aria-selected="false"><i class="fa fa-th-list"></i></a>
+                            </li>
+                            <li class="nav-item">Showning 4 0f 24 Results</li>
+                        </ul> <!-- nav -->
+                        
+                        <div class="courses-search float-right">
+                            <form action="#">
+                                <input type="text" placeholder="Search">
+                                <button type="button"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div> <!-- courses search -->
+                    </div> <!-- courses top search -->
+                </div>
+            </div> <!-- row -->
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="courses-grid" role="tabpanel" aria-labelledby="courses-grid-tab">
+                    <div class="row">
+                    {% for formation in formations %}
+                        <div class="col-lg-4 col-md-6">
+                            <div class="singel-course mt-30">
+                                <div class="thum">
+                                    <div class="image">
+                                        <img src="{{ asset('assets-site/images/course/cu-1.webp') }}" alt="Course">
+                                    </div>
+                                    
+                                </div>
+                                <div class="cont">
+                                  
+                                    <a href="#"><h4>{{ formation.titre }}</h4></a>
+                                    <div class="course-teacher">
+                                        <div class="thum">
+                                            <a href="#"><img src="{{ formation.formateur.photo }}" alt="teacher"></a>
+                                        </div>
+                                        <div class="name">
+                                            <a href="#"><h6>{{ formation.formateur.nom }} {{ formation.formateur.prenom }}</h6></a>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                            </div> <!-- singel course -->
+                        </div>
+                    {% endfor %}
+                    </div> <!-- row -->
+                </div>
+              
+            </div> <!-- tab content -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="courses-pagination mt-50">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a href="#" aria-label="Previous">
+                                    <i class="fa fa-angle-left"></i>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="active" href="#">1</a></li>
+                            <li class="page-item"><a href="#">2</a></li>
+                            <li class="page-item"><a href="#">3</a></li>
+                            <li class="page-item">
+                                <a href="#" aria-label="Next">
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>  <!-- courses pagination -->
+                </div>
+            </div>  <!-- row -->
+        </div> <!-- container -->
+    </section>
+    <!--====== SEARCH BOX PART ENDS ======-->
+   
+    <!--====== PAGE BANNER PART START ======-->
+    
+    
+    <!--====== PAGE BANNER PART ENDS ======-->
+    
+    <!--====== CONTACT PART START ======-->
+    
+    
+    
+    <!--====== CONTACT PART ENDS ======-->
+   
+    <!--====== FOOTER PART START ======-->
+    
+  
+{% endblock %}

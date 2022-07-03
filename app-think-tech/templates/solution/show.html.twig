@@ -1,0 +1,76 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Solution{% endblock %}
+
+{% block dynamic %}
+   
+    <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            
+          </div>
+         
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+      
+          <div class="col-12">
+            
+            <!-- /.card -->
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Détail Solution</h3>
+
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+              <table class="table">
+        <tbody>
+            <tr>
+                            {% if solution.photo is empty %}
+                                <td class="text-center"><img height="80px" width="80px" style="margin-right: -84px;" src="{{ asset('solution.jpg') }}"/></td>
+                              
+                            {% else %}
+
+                                 <td class="text-center"><img height="120px" width="150px" style="margin-right: -84px;" src="{{ asset('solutions/'~solution.photo) }}"/></td>
+                            {% endif %}
+               
+                        </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ solution.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ solution.description }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ solution.prix }} TND</td>
+            </tr>
+        </tbody>
+    </table>
+                 <a style="text-decoration: underline;" href="{{ path('app_solution_index') }}">Retour</a>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+{% endblock %}

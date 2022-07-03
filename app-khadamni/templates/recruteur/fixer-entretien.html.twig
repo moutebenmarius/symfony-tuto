@@ -1,0 +1,52 @@
+{% extends 'recruteur/index.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block main %}
+     <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>Fixer un entretien</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item active"><a class="btn btn-primary" href="{{ path('app_logout') }}">Déconnxion</a></li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                    <a href="https://meet.google.com/new" target="_blank" class="btn btn-warning"><i class="fas fa-2x fa-video"></i>&nbsp;&nbsp;récupérer un lien d'entretien</a>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  {{ form_start(form)}}
+                  {{ form_widget(form)}}
+                  <button type="submit" class="btn btn-sm btn-primary btn-block mt-2">Enregistrer</button>
+                  {{ form_end(form)}}
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+{% endblock %}

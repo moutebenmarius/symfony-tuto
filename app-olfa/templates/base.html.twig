@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Logiciel de Gestion d'une établissement Sécondaire!{% endblock %}</title>
+         <script>
+            addEventListener("load", function() {
+                setTimeout(hideURLbar, 0);
+            }, false);
+
+            function hideURLbar() {
+                window.scrollTo(0, 1);
+            }
+         </script>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+           
+    <link href="{{ asset('assets-site/css/bootstrap.css') }}" rel='stylesheet' type='text/css' />
+    <link href="{{ asset('assets-site/css/zoomslider.css') }}" rel='stylesheet' type='text/css' />
+    <link href="{{ asset('assets-site/css/style6.css') }}" rel='stylesheet' type='text/css' />
+    <link href="{{ asset('assets-site/css/style.css') }}" rel='stylesheet' type='text/css' />
+    <link href="{{ asset('assets-site/css/fontawesome-all.css') }}" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+        {% endblock %}
+
+       
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+         {% block javascripts %}
+            <script src="{{ asset('assets-site/js/classie-search.js') }}"></script>
+    <script src="{{ asset('assets-site/js/demo1-search.js') }}"></script>
+    <!--//search jQuery-->
+<script src="{{ asset('assets-site/js/jquery-1.11.1.min.js') }}"></script>
+    <script src="{{ asset('assets-site/js/modernizr-2.6.2.min.js') }}"></script>
+    <script src="{{ asset('assets-site/js/jquery.zoomslider.min.js') }}"></script>
+     <script>
+$(document).ready(function(){
+
+  $("#submit").click(function(){
+    var log=$('#CIN').val();
+    var mtp=$('#Motdepasse').val();
+    $.post("log.php",
+    {
+      log:log,
+      mtp:mtp
+    },
+    function(data,status){
+      if (data=="11") {
+        $(location).attr("href","APPLICATIONna/conindexressource.php");
+
+      }else if (data!="11") {
+        $(location).attr("href","APPLICATIONna/congestionemploye.php");
+      }
+      else {
+          $("#reponse").html("Probleme de connexion");
+          $("#reponse").fadeIn("slow");
+          $("#CIN").val('');
+          $("#Motdepasse").val('');
+      }
+
+    });
+  });
+
+      $("#CIN").keypress(function(){
+      $("#reponse").text('');
+      });
+
+});
+</script>
+    <script>
+        $(document).ready(function() {
+            $(".dropdown").hover(
+                function() {
+                    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                    $(this).toggleClass('open');
+                },
+                function() {
+                    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+    <!-- //dropdown nav -->
+    <!-- password-script -->
+    <script>
+        window.onload = function() {
+            document.getElementById("password1").onchange = validatePassword;
+            document.getElementById("password2").onchange = validatePassword;
+        }
+
+        function validatePassword() {
+            var pass2 = document.getElementById("password2").value;
+            var pass1 = document.getElementById("password1").value;
+            if (pass1 != pass2)
+                document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+            else
+                document.getElementById("password2").setCustomValidity('');
+            //empty string means no validation error
+        }
+    </script>
+    <!-- //password-script -->
+
+    <!-- stats -->
+    <script src="{{ asset('assets-site/js/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('assets-site/js/jquery.countup.js') }}"></script>
+    <script>
+        $('.counter').countUp();
+    </script>
+    <!-- //stats -->
+
+    <!-- //js -->
+    <script src="{{ asset('assets-site/js/bootstrap.js') }}"></script>
+    <!--/ start-smoth-scrolling -->
+    <script src="{{ asset('assets-site/js/move-top.js') }}"></script>
+    <script src="{{ asset('assets-site/js/easing.js') }}"></script>
+    <script>
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 900);
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            /*
+            						var defaults = {
+            							  containerID: 'toTop', // fading element id
+            							containerHoverID: 'toTopHover', // fading element hover id
+            							scrollSpeed: 1200,
+            							easingType: 'linear' 
+            						 };
+            						*/
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+    </script>
+    <script>
+        const url = window.location.href;
+        let homeElement = document.getElementById('idHome');
+        let contactElement = document.getElementById('idContact');
+        let aboutElement = document.getElementById('idAbout');
+        const items = url.split('/');
+        const currentParam = items[items.length-1];
+        if(!currentParam){
+            //homeElement.classList;
+            contactElement.classList.remove('active');
+            aboutElement.classList.remove('active');
+        }else if(currentParam == "about"){
+            contactElement.classList.remove('active');
+            homeElement.classList.remove('active');
+            aboutElement.classList.add('active');
+        } else if(currentParam == "contact"){
+            aboutElement.classList.remove('active');
+            homeElement.classList.remove('active');
+            contactElement.classList.add('active');
+        }
+    </script>
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,32 @@
+{% extends 'site/index.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block dynamic %}
+  <section id="contact-page" class="pt-90 pb-120 gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="contact-from mt-30">
+                        <div class="section-title">
+                            <h5>Commander la solution {{ solution.titre }}</h5>
+                           {% for message in app.flashes('danger') %}
+            <div class="alert alert-danger mt-2">
+                {{ message }}
+            </div>
+        {% endfor %}
+                        </div> <!-- section title -->
+                        <div class="main-form pt-45">
+                                {{ form_start(form) }}
+                                {{ form_widget(form) }}
+
+                                    <button type="submit" class="btn btn-primary mt-2">Commander</button>
+                                {{ form_end(form) }}
+                        </div> <!-- main form -->
+                    </div> <!--  contact from -->
+                </div>
+              
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+{% endblock %}

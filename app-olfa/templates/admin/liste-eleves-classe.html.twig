@@ -1,0 +1,67 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block dynamic %}
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            
+          </div>
+          
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Liste des éléves de classe: <span class="badge badge-warning text-white">{{ classe.niveau.niveau }} {{ classe.section.section }}</span></h3>
+
+              </div>
+              
+              <!-- /.card-header -->
+              <button onclick="return window.print();" class="btn btn-sm btn-success">Imprimer</button>
+              <div class="card-body">
+             
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    {% for eleve in eleves %}
+               
+                   <tr>
+                       <td>{{ eleve.nom }}</td>
+                       <td>{{ eleve.prenom }}</td>
+                  </tr>
+                    {% endfor %}                
+                  </tbody>
+                  
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+           
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+{% endblock %}

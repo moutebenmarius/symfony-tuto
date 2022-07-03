@@ -1,0 +1,83 @@
+{% extends 'site/index.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block content %}
+
+<div class="uni-contact-us">
+    <div id="wrapper-container" class="site-wrapper-container">
+      
+
+        <div id="main-content" class="site-main-content">
+            <section class="site-content-area">
+
+                <div class="uni-banner-default uni-background-1">
+                    <div class="container">
+                        <!-- Page title -->
+                        <div class="page-title">
+                            <div class="page-title-inner">
+                                <h1>Connexion</h1>
+                            </div>
+                        </div>
+                        <!-- End page title -->
+
+                        <!-- Breadcrumbs -->
+                       
+                        <!-- End breadcrumbs -->
+                    </div>
+                </div>
+
+                <div class="uni-contact-us-body">
+                    <!--MAP-->
+                 
+                    <div class="uni-contact-us-body-content">
+                        <div class="container">
+                        {% for message in app.flashes('info') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+                            <div class="row">
+                                <div class="col-md-12">
+                                 <form method="post">
+                                    <div class="uni-send-a-message">
+                                        <div class="uni-contact-title">
+                                           {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+                                            <div class="uni-line"></div>
+                                        </div>
+                                        <div class="uni-send-a-message-body">
+                                           
+                                                <div class="input-group form-group">
+                                                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                                    <input type="text" class="form-control" name="nomUtilisateur" id="inputNomUtilisateur" value="{{ last_username }}" placeholder="votre nom utilisateur ...">
+                                                </div>
+                                                <div class="input-group form-group">
+                                                    <span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                                                    <input type="password" class="form-control" name="password" id="inputPassword" value="" placeholder="votre mot de passe ...">
+                                                </div>
+                                                
+                                                 <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+
+                                                <button class="vk-btn vk-btn-send">se conntecter</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

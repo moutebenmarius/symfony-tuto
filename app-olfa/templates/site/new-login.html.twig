@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Login</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<link rel="stylesheet" href="{{ asset('new-login-assets/css/style.css') }}">
+
+	</head>
+	<body class="img js-fullheight" style="background-image: url({{ asset('new-login-assets/images/s.png') }})">
+		<section class="ftco-section">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-6 text-center mb-5">
+						<h2 class="heading-section">Lycée Privée</h2>
+					</div>
+				</div>
+				
+				<div class="row justify-content-center">
+					<div class="col-md-6 col-lg-4">
+						<div class="login-wrap p-0">
+							<h3 class="mb-4 text-center">ENNOUR</h3>
+							<form method="post">
+								{% if error %}
+									<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+								{% endif %}
+
+								{% if app.user %}
+									<div class="mb-3">
+										You are logged in as
+										{{ app.user.username }},
+										<a href="{{ path('app_logout') }}">Logout</a>
+									</div>
+								{% endif %}
+
+							
+								<label for="inputCin">CIN:</label>
+								<input type="text" value="{{ last_username }}" name="cin" id="inputCin" class="form-control" autocomplete="username" required autofocus>
+								<label for="inputPassword">Mot de passe:</label>
+								<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+								<input
+								type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+								{#
+								        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+								        See https://symfony.com/doc/current/security/remember_me.html
+								
+								        <div class="checkbox mb-3">
+								            <label>
+								                <input type="checkbox" name="_remember_me"> Remember me
+								            </label>
+								        </div>
+								    #}
+
+								<button class="btn btn-sm btn-block btn-primary mt-2" type="submit">
+									se connecter
+								</button>
+								<a href="{{ path('mot_de_passe_oublie') }}">Mot de passe oublié</a>
+							</form>
+							
+							<!--<p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
+														<div class="social d-flex text-center">
+															<a href="#" class="px-2 py-2 mr-md-1 rounded">
+																<span class="ion-logo-facebook mr-2"></span>
+																Facebook</a>
+															<a href="#" class="px-2 py-2 ml-md-1 rounded">
+																<span class="ion-logo-twitter mr-2"></span>
+																Twitter</a>
+														</div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<script src="{{ asset('new-login-assets/js/jquery.min.js') }}"></script>
+		<script src="{{ asset('new-login-assets/js/popper.js') }}"></script>
+		<script src="{{ asset('new-login-assets/js/bootstrap.min.js') }}"></script>
+		<script src="{{ asset('new-login-assets/js/main.js') }}"></script>
+
+	</body>
+</html>

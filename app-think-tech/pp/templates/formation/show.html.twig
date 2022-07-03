@@ -1,0 +1,36 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Formation{% endblock %}
+
+{% block dynamic %}
+    <h1>Formation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ formation.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ formation.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ formation.description }}</td>
+            </tr>
+            <tr>
+                <th>DateDebut</th>
+                <td>{{ formation.dateDebut | date('d-m-Y') }}</td>
+            </tr>
+            <tr>
+                <th>NbrHeures</th>
+                <td>{{ formation.nbrHeures }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ formation.type }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

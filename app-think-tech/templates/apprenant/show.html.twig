@@ -1,0 +1,90 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Utilisateur{% endblock %}
+
+{% block dynamic %}
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Gestion Apprenants</h1>
+          </div>
+         
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+      
+          <div class="col-12">
+            
+            <!-- /.card -->
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Détail Apprenant</h3>
+
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                 <table class="table">
+        <tbody>
+            <tr>
+              
+                <td class="text-center"><img height="80px" width="80px" style="margin-right: -84px;" src="{{ asset('avatars/'~utilisateur.photo) }}"/></td>
+            </tr>
+            
+            <tr>
+                <th>Email</th>
+                <td>{{ utilisateur.email }}</td>
+            </tr>
+            
+          
+            <tr>
+                <th>Nom</th>
+                <td>{{ utilisateur.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prénom</th>
+                <td>{{ utilisateur.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ utilisateur.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Téléphone</th>
+                <td>{{ utilisateur.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Niveau</th>
+                <td>{{ utilisateur.niveau }}</td>
+            </tr>
+        
+            <tr>
+                <th>Ville</th>
+                <td>{{ utilisateur.ville }}</td>
+            </tr>
+        </tbody>
+    </table>
+     <a style="text-decoration: underline;" href="{{ path('app_apprenant_index') }}">Retour</a>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+   
+{% endblock %}

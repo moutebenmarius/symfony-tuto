@@ -1,0 +1,35 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Hello AdminController!
+{% endblock %}
+
+
+{% block contenu %}
+	<div class="card">
+		<div class="card-header bg-primary text-white text-center">
+			Actualité
+		</div>
+		<div class="card-body">
+		<a href="{{ path('ajouter_actualite') }}" class="btn btn-sm btn-block btn-primary mb-3">publier une actualité</a>
+			<div class="row">
+				
+				<div class="col">
+				{% for actualite in actualites %}
+					<div class="card mt-3">
+						<div class="card-header">
+							{{ actualite.titre }}
+						</div>
+						<div class="card-body mb-2">
+							{{ actualite.description }}
+						</div>
+						
+							<a href="{{ path('supprimer_publication', {'id': actualite.id}) }}" class="btn btn-sm btn-danger btn-block mt-2">supprimer</a>
+						
+					</div>
+					{% endfor %}
+				</div>
+				
+			</div>
+		</div>
+	</div>
+{% endblock %}

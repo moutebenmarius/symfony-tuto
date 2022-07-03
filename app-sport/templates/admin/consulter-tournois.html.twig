@@ -1,0 +1,77 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Hello AdminController!
+{% endblock %}
+{% block contenu %}
+	<div class="card">
+		<div class="card-header bg-primary text-white text-center">
+			Liste des tournois
+		</div>
+		<div class="card-body">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+
+
+						<div class="card-body">
+							{% for tournoi in tournois %}
+							<div class="col-md-12">
+								
+								<div class="row text-center">
+									<div class="col-md-4 active">
+										{{tournoi.candidat}}
+										<ul class="list-group">
+											<li class="list-group-item">Score: --
+											</li>
+
+										</ul>
+									</div>
+									<div class="col-md-4">
+										<ul class="list-group">
+											<li class="list-group-item">VS</li>
+											<li class="list-group-item">Organiser par coach: 	{{tournoi.arbitre.nom}} {{tournoi.arbitre.prenom}}</li>
+											<li class="list-group-item">Type de tournoi: {{tournoi.arbitre.typeSport}}</li>
+											<li class="list-group-item">Date: {{tournoi.dateTournoi | date('d-m-Y H:i')}}</li>
+											<li class="list-group-item bg-info text-white">Vaiqueur: -- </li>
+										</ul>
+									</div>
+									<div class="col-md-4">
+											{{tournoi.candidat2 }}
+										<li class="list-group-item">Score: --</li>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+							<!--<div class="col mt-2">
+								<div class="row text-center">
+									<div class="col-md-4 active">
+										Ahmed Ben Abdallah
+										<ul class="list-group">
+											<li class="list-group-item">Score: --
+											</li>
+
+										</ul>
+									</div>
+									<div class="col-md-4">
+										<ul class="list-group">
+											<li class="list-group-item">VS</li>
+											<li class="list-group-item">Organiser par coach: Mariam Gabsi</li>
+											<li class="list-group-item">Type de tournoi: Karaté</li>
+											<li class="list-group-item">Date: 20-05-2022 10:00</li>
+
+										</ul>
+									</div>
+									<div class="col-md-4">
+										Hedi Tounsi
+										<li class="list-group-item">Score: --</li>
+									</div>
+								</div>
+							</div>-->
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+{% endblock %}

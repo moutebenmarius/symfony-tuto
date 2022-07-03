@@ -1,0 +1,84 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block dynamic %}
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+           
+          </div>
+          
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+
+              <div class="card-header">
+                <h3 class="card-title">Liste des apprenants</h3>
+              </div>
+               <div class="card-body">
+                  <form action="/enseignant/chercher" method="get" class="form-inline">
+                    <div class="form-group">
+                      <input type="text"  class="form-control" placeholder="recherche ..." name="q">
+                    </div>
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-sm btn-primary ml-2"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </div>
+                  </form>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Numéro de téléphone</th>
+                    <th>Actions</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                {% for enseignant in utilisateurs %}
+                  <tr>
+                    <td>{{ enseignant.nom }}</td>
+                    <td>{{ enseignant.prenom }}</td>
+                    <td>{{ enseignant.telephone }}</td>
+                    <td>
+                        <a href="{{ path('app_apprenant_show', {'id': enseignant.id}) }}" class="btn btn-info"><i class="fa fa-eye"></i></a>&nbsp;
+                       <a  onclick="return confirm('etes-vous sur')" class="btn btn-danger" href="{{ path('supprimer_apprenant', {'id': enseignant.id}) }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                        
+                    </td>
+                    
+                  </tr>
+                  {% endfor %}
+                  </tbody>
+                  
+                </table>
+               
+  
+                  
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+           
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+{% endblock %}

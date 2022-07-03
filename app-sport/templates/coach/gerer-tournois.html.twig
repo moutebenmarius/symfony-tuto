@@ -1,0 +1,57 @@
+{% extends 'coach/index.html.twig' %}
+{% block title %}Bienvenue !
+{% endblock %}
+
+{% block contenu %}
+	<div class="card">
+		<div class="card-header bg-primary text-white text-center">
+			Gestion des Tournois
+		</div>
+		<div class="card-body">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						{% for message in app.flashes('success') %}
+							<div class="alert alert-success">
+								{{ message }}
+							</div>
+						{% endfor %}
+
+						<div class="card-body mt-2 bg-primary m-2 text-center text-center text-white">Liste des Tournois</div>
+						<div class="card-body">
+							<a href="{{ path('planifier_tournoi') }}" class="btn btn-sm btn-primary mb-2">
+								<i class="fa-solid fa-timer"></i>
+
+								&nbsp;Planifier un Tournoi</a>
+							<table class="table">
+								<thead>
+									<tr>
+										<th>Candidat 1</th>
+										<th>Candidat 2</th>
+										<th>Score</th>
+										<th>Vainqueur</th>
+										<th>Date</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+								{% for tournoi in tournois %}
+									<tr>
+										<td>{{ tournoi.candidat }}</td>
+										<td>{{ tournoi.candidat2 }}</td>
+										<td>{{ tournoi.score }}</td>
+										<td>{{ tournoi.vainqueur }}</td>
+										<td>{{ tournoi.dateTournoi | date('d-m-Y H:i') }}</td>
+										<td><a href="" class="btn btn-sm btn-danger">annuler</a></td>
+									</tr>
+								{% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+{% endblock %}

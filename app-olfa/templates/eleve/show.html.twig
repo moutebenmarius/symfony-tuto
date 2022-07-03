@@ -1,0 +1,90 @@
+
+
+
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Edit Utilisateur{% endblock %}
+
+{% block dynamic %}
+    <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+          </div>
+          
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+
+            <table class="table">
+        <tbody>
+           
+            <tr rowspan="2">
+                
+                <td><img height="80px" width="80px" style="margin-right: -84px;" src="{{ asset('eleves/'~eleve.photo) }}" /></td>
+            </tr>
+            <tr>
+                <th>Matricule</th>
+                <td>{{ eleve.matricule }}</td>
+            </tr>
+            <tr>
+                <th>CIN Parent</th>
+                <td>{{ eleve.cinParent }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ eleve.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prénom</th>
+                <td>{{ eleve.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{{ eleve.genre }}</td>
+            </tr>
+            <tr>
+                <th>Date Naissance</th>
+                <td>{{ eleve.dateNaissance|date('m-d-Y') }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ eleve.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Téléphone Parent</th>
+                <td>{{ eleve.telephoneParent }}</td>
+            </tr>
+            <tr>
+                
+                <td><a href="{{ path('liste_eleves') }}">retour a la liste</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+            </div>
+            <!-- /.card -->
+
+           
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+   
+{% endblock %}

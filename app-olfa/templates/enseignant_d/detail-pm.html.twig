@@ -1,0 +1,84 @@
+{% extends 'enseignant_d/index.html.twig' %}
+
+{% block dynamic %}
+	<div
+		class="content-wrapper">
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h1>Détail de la partie matiere</h1>
+					</div>
+
+				</div>
+			</div>
+			<!-- /.container-fluid -->
+		</section>
+
+		<!-- Main content -->
+		<section class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-12">
+						<div class="card">
+
+							<div class="card-header"></div>
+
+							<!-- /.card-header -->
+							<div class="card-body">
+								<table class="table">
+									<tbody>
+										<tr>
+											<th>Matière:
+											</th>
+											<td>{{ pm.matiere.libelle }}</td>
+										</tr>
+										<tr>
+											<th>Description</th>
+											<td>{{ pm.description }}</td>
+										</tr>
+										<tr>
+											<th>Travaux à faire</th>
+											<td>{{ pm.travauxAfaire}}</td>
+										</tr>
+										<tr>
+											<th>Fichier</th>
+											<td>
+												{% if pm.fichier %}
+													<a href="{{ asset('parties_m/'~pm.fichier) }}" target="_blank">voir le fichier</a>
+												{% else %}
+													pas défini
+												{% endif %}
+											</td>
+										</tr>
+										<tr>
+											<th>Consulté par le directeur ?</th>
+											<td>
+												{% if pm.estVuParDirecteur %}
+													oui
+												{% else %}
+													non
+												{% endif %}
+											</td>
+										</tr>
+									</tbody>
+								</table>
+
+							</div>
+							<!-- /.card-body -->
+						</div>
+						<!-- /.card -->
+
+
+						<!-- /.card -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+			</div>
+			<!-- /.container-fluid -->
+		</section>
+		<!-- /.content -->
+	</div>
+{% endblock %}

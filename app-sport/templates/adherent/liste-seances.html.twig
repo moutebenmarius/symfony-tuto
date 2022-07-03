@@ -1,0 +1,57 @@
+{% extends 'adherent/index.html.twig' %}
+
+{% block title %}Bienvenue !
+{% endblock %}
+
+{% block contenu %}
+	<div class="card">
+		<div class="card-header bg-primary text-white text-center">
+			Liste des seances
+		</div>
+		<div class="card-body">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						{% for message in app.flashes('success') %}
+							<div class="alert alert-success">
+								{{ message }}
+							</div>
+						{% endfor %}
+
+						
+						<div class="card-body">
+							
+							<table class="table">
+								<thead>
+									<tr>
+                                    <th>Type de seance</th>
+                                    <th>Coach</th>
+										<th>Date</th>
+										<th>Nombre d'adhérents</th>
+										<th>Nombre de réservations</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+								{% for seance in seances %}
+									<tr>
+										<td>{{ seance.typeSeance }}</td>
+										<td>{{ seance.coach.nom }} {{ seance.coach.prenom }}</td>
+										<td>{{ seance.dateSeance | date('d-m-Y H:i') }}</td>
+										<td>{{ seance.limitAdherent}}</td>
+										<td>{{ seance.reservations | length}}</td>
+										<td>
+											<a href="{{ path('reserver_seance',{'id':seance.id}) }}" class="btn btn-sm btn-success">réserver</a>
+										</td>
+									</tr>
+								{% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+{% endblock %}

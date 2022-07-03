@@ -1,0 +1,69 @@
+{% extends 'proviseur/index.html.twig' %}
+
+{% block dynamic %}
+	<div
+		class="content-wrapper">
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h1>Liste des programmes</h1>
+					</div>
+
+				</div>
+			</div>
+			<!-- /.container-fluid -->
+		</section>
+
+		<!-- Main content -->
+		<section class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-12">
+						<div class="card">
+							<div class="card-header">
+							
+							</div>
+							<!-- /.card-header -->
+							<div class="card-body">
+								<table class="table">
+									<thead>
+										<tr>
+											<th>Classe</th>
+											<th>Enseignant</th>
+                                            <th>Programme</th>
+										</tr>
+									</thead>
+									<tbody>
+										{% for programme in programmes %}
+											<tr>
+                                                <td>{{ programme.classe.niveau.niveau }} {{ programme.classe.section.section }} </td>
+												<td>{{ programme.enseignant.prenom }} {{ programme.enseignant.nom }}</td>
+												<td class="text-center"><a target="_blank" href="{{ asset('programmes/'~programme.fichierPdf) }}"><i class="fa fa-eye"></i></a></td>
+											
+											</tr>
+										{% else %}
+											<tr>
+												<td colspan="3">aucun programme trouvé</td>
+											</tr>
+										{% endfor %}
+									</tbody>
+								</table>
+							</div>
+							<!-- /.card-body -->
+						</div>
+						<!-- /.card -->
+
+
+						<!-- /.card -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+			</div>
+			<!-- /.container-fluid -->
+		</section>
+		<!-- /.content -->
+	</div>
+{% endblock %}

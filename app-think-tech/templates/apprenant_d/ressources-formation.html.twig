@@ -1,0 +1,82 @@
+{% extends 'apprenant_d/index.html.twig' %}
+
+{% block title %}formation index
+{% endblock %}
+
+{% block dynamic %}
+	<div
+		class="content-wrapper">
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+					</div>
+
+				</div>
+			</div>
+			<!-- /.container-fluid -->
+		</section>
+
+		<!-- Main content -->
+		<section class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-12">
+						{% for message in app.flashes('info') %}
+							<div class="alert alert-success">
+								{{ message }}
+							</div>
+						{% endfor %}
+						<!-- /.card -->
+
+						<div class="card">
+							<div class="card-header">
+								<h3 class="card-title">Ressource de la formation</h3>
+							</div>
+							<!-- /.card-header -->
+							<div class="card-body">
+
+								<table id="example1" class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th>Date Séance</th>
+                                            <th>Ressources Pédagogiques</th>
+										</tr>
+									</thead>
+									<tbody>
+										{% for rs in ressources %}
+                                        <tr>
+                                            <td>
+                                                {{ rs.seance.dateSeance | date('d-m-Y H:i') }}
+                                            </td>
+                                            <td>
+                                             <ul class="list-group">
+                                                {% for r in rs.fichiers %}
+                                                   
+                                                    <li class="list-group-item"><a target="_blank" href="{{ asset('fichier_seances/'~r.fichierUrl) }}"> {{ r.titre   }}</a></li>
+                                                {% endfor %}
+
+                                                    </ul>
+                                            </td>
+                                        </tr>
+                                            
+                                        {% endfor %}
+									</tbody>
+								</table>
+                                <a href="{{ path('formations_apprenants') }}" style="text-decoration: underline">Retour</a>
+							</div>
+							<!-- /.card-body -->
+						</div>
+						<!-- /.card -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+			</div>
+			<!-- /.container-fluid -->
+		</section>
+		<!-- /.content -->
+	</div>
+
+{% endblock %}

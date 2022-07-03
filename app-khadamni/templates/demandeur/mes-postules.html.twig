@@ -1,0 +1,75 @@
+{% extends 'demandeur/index.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block main %}
+     <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>Liste des postules</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item active"><a class="btn btn-primary" href="{{ path('app_logout') }}">Déconnxion</a></li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                 
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                      <tr>
+                        <th>Recruteur</th>
+                        <th>Offre</th>
+                        <th>Postuler en</th>
+                        <th>Etat</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for postule in postules %}
+                      <tr>
+                        <td>{{ postule.offre.recruteur.nom }} {{ postule.offre.recruteur.prenom }}</td>
+                        <td>{{ postule.offre.titre }}</td>
+                        <td>{{ postule.datePostule | date('d-m-Y H:i') }}
+                        </td>
+                        <td>
+                        {% if postule.status == "en cours" %} En Cours {% endif %}</td>
+                        <td>
+                          <a href="{{ path('annuler', {'id':postule.id}) }}" class="btn btn-danger btn-sm">annuler</a>
+                            
+                        </td>
+                      </tr>
+                      {% endfor %}
+                      
+                  </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+{% endblock %}

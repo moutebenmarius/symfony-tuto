@@ -1,0 +1,82 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}solution index{% endblock %}
+
+{% block dynamic %}
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Gestion des commandes</h1>
+          </div>
+         
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            
+            <!-- /.card -->
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Liste des commandes</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+              
+             
+               <table id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Client</th>
+                <th>Solution</th>
+                <th>QTE</th>
+                <th>Prix Unitaire</th>
+                <th>Prix Total</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+       {% for commande in commandes %}
+            <tr>
+                <td>{{ commande.client.prenom }} {{ commande.client.nom  }}</td>
+                <td>{{ commande.solution.titre }}</td>
+                <td>{{ commande.qte }}</td>
+                <td>{{ commande.solution.prix }}</td>
+                <td>{{ commande.prixTotal }}</td>
+                
+                 <td>
+                    <a class="btn btn-primary" href="{{ path('detail_commande', {'id': commande.id}) }}"><i class="fas fa-eye"></i></a>
+                       
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">aucun résultat trouvé </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+           </table>
+               
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  
+{% endblock %}

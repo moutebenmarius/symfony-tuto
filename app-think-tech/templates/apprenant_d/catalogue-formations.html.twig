@@ -1,0 +1,83 @@
+{% extends 'apprenant_d/index.html.twig' %}
+
+{% block title %}formation index{% endblock %}
+
+{% block dynamic %}
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Mes formations</h1>
+          </div>
+         
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            {% for message in app.flashes('info') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+            <!-- /.card -->
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Liste des formations</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+              {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+               <table id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+       {% for formation in formations %}
+            <tr>
+                <td>{{ formation.titre }}</td>
+                <td>{{ formation.type }}</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" href="{{ path('inscrire_formation', {'id': formation.id}) }}">inscrire</a>
+                </td>    
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">aucun résultat trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+           </table>
+               
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  
+{% endblock %}
+
+

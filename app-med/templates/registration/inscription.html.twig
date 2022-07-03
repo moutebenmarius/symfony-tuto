@@ -1,0 +1,53 @@
+{% extends 'site/index.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+   <div class="uni-contact-us">
+    <div id="wrapper-container" class="site-wrapper-container">
+      
+
+        <div id="main-content" class="site-main-content">
+            <section class="site-content-area">
+
+                <div class="uni-banner-default uni-background-1">
+                    <div class="container">
+                        <!-- Page title -->
+                        <div class="page-title">
+                            <div class="page-title-inner text-center">
+                                <h1 class="">Inscription</h1>
+                            </div>
+                        </div>
+                        <!-- End page title -->
+
+                        <!-- Breadcrumbs -->
+                       
+                        <!-- End breadcrumbs -->
+                    </div>
+                </div>
+
+                <div class="uni-contact-us-body">
+                    <!--MAP-->
+                 
+                    <div class="uni-contact-us-body-content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {{ form_start(form) }}
+                                    {{ form_widget(form) }}
+                                    <button type="submit" class="btn btn-primary btn-sm">inscrire</button>
+                                    {{ form_start(form) }}
+                                </div>
+                               
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

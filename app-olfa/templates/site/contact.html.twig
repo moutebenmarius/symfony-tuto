@@ -1,0 +1,367 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SiteController!{% endblock %}
+
+{% block body %}
+<!-- banner-inner -->
+	<div id="demo-1" class="page-content">
+		<div class="dotts">
+			<div class="header-top">
+				<header>
+					<div class="top-head ml-lg-auto text-center">
+						<div class="row top-vl">
+
+							
+						<div class="col-md-3 sign-btn">
+                                <a href="{{ path('app_login') }}">
+                                    <i class="fas fa-lock"></i> Account</a>
+                            </div>
+								
+							
+						</div>
+					</div>
+					<div class="clearfix"></div>
+					<nav class="navbar navbar-expand-lg navbar-light">
+						<div class="logo">
+							<h1>
+								<a class="navbar-brand" href="index.html">
+									<i class="fab fa-codepen"></i> ENNOUR</a>
+							</h1>
+						</div>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						    aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon">
+									<i class="fas fa-bars"></i>
+								</span>
+			
+						</button>
+
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-lg-auto text-center">
+                                <li class="nav-item active" id="idHome">
+                                    <a class="nav-link" id="aHome" href="{{ path('app_site') }}" onclick="colorMe">Home
+                                        <span class="sr-only">(current)</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item" id="idAbout">
+                                    <a class="nav-link" id="aAbout" onclick="colorMe" href="{{ path('app_about') }}">About</a>
+                                </li>
+                            
+                                <li class="nav-item" id="idContact">
+                                    <a class="nav-link" id="aContact" onclick="colorMe" href="{{ path('app_contact') }}">Contacts</a>
+                                </li>
+                            </ul>
+
+                        </div>
+					</nav>
+				</header>
+			</div>
+			<!--/banner-info-w3layouts-->
+			<div class="banner-info-w3layouts text-center">
+			</div>
+			<!--//banner-info-w3layouts-->
+		</div>
+	</div>
+	
+	<!-- banner-text -->
+	<!-- contact -->
+	<section class="banner-bottom-wthree pt-lg-5 pt-md-3 pt-3">
+		<div class="inner-sec-w3ls pt-md-5 pt-md-3 pt-3">
+		<!---728x90--->
+			<h3 class="tittle text-center mb-lg-5 mb-3">
+				<span>Get Intouch</span>Contact Us</h3>
+				<!---728x90--->
+				<div class="container">
+						<div class="address row mb-5">
+							<div class="col-lg-4 address-grid">
+								<div class="row address-info">
+									<div class="col-md-3 address-left text-center">
+										<i class="far fa-map"></i>
+									</div>
+									<div class="col-md-9 address-right text-left">
+										<h6 class="ad-info text-uppercase mb-2">Address</h6>
+										<p> El Hamma 6020
+Tunisia
+		
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4 address-grid">
+								<div class="row address-info">
+									<div class="col-md-3 address-left text-center">
+										<i class="far fa-envelope"></i>
+									</div>
+									<div class="col-md-9 address-right text-left">
+										<h6 class="ad-info text-uppercase mb-2">Email</h6>
+										<p>
+											<a href="walidmahjoubi@gmail.com
+
+"> walidmahjoubi@gmail.com
+
+</a>
+										</p>
+									</div>
+		
+								</div>
+							</div>
+							<div class="col-lg-4 address-grid">
+								<div class="row address-info">
+									<div class="col-md-3 address-left text-center">
+										<i class="fas fa-mobile-alt"></i>
+									</div>
+									<div class="col-md-9 address-right text-left">
+										<h6 class="ad-info text-uppercase mb-2">Phone</h6>
+										<p>+216 75333 664</p>
+		
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6 map">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3311.983800997198!2d9.798698214550612!3d33.890071033707514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12559b828ce15993%3A0xf62d4ffe635c19e6!2z2YXYudmH2K8g2KfZhNmG2YjYsSDYp9mE2K7Yp9i1INmE2YTYqti52YTZitmFINin2YTYq9in2YbZiNmK!5e0!3m2!1sfr!2stn!4v1647274321669!5m2!1sfr!2stn" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+					</div>
+					<div class="col-md-6 main_grid_contact">
+						<div class="form">
+							<h4 class="mb-4 text-left">Send us a message</h4>
+							<form action="#" method="post">
+								<div class="form-group">
+									<label class="my-2">Name</label>
+									<input class="form-control" type="text" name="Name" placeholder="" required="">
+								</div>
+								<div class="form-group">
+									<label>Email</label>
+									<input class="form-control" type="email" name="Email" placeholder="" required="">
+								</div>
+								<div class="form-group">
+									<label>Message</label>
+									<textarea id="textarea" placeholder=""></textarea>
+								</div>
+								<div class="input-group1">
+									<input class="form-control" type="submit" value="Submit">
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- //contact -->
+	<!---728x90--->
+	<!--footer -->
+	<footer class="footer-emp-w3layouts bg-dark dotts py-lg-5 py-3">
+		<div class="container-fluid px-lg-5 px-3">
+			<div class="row footer-top">
+				<div class="col-lg-3 footer-grid-wthree-w3ls">
+					<div class="footer-title">
+						<h3>ENNOUR</h3>
+					</div>
+					<div class="footer-text">
+						<p>La société Ennour ç été le 01/09/2007. Ennour est une établissement d'enseignement sécondaire privée constitue par classe des niveaux différents des classes (de 7 année de base jusqu'à 4 année secondaire ) et les sections (Informatique , Science , Economie et Gestion , Lettre) offrant des formations dans des divers sections et de nombres des élèves et des professeurs.</p>
+						<ul class="footer-social text-left mt-lg-4 mt-3">
+
+							<li class="mx-2">
+								<a href="#">
+									<span class="fab fa-facebook-f"></span>
+								</a>
+							</li>
+							<li class="mx-2">
+								<a href="#">
+									<span class="fab fa-twitter"></span>
+								</a>
+							</li>
+							<li class="mx-2">
+								<a href="#">
+									<span class="fab fa-google-plus-g"></span>
+								</a>
+							</li>
+							<li class="mx-2">
+								<a href="#">
+									<span class="fab fa-linkedin-in"></span>
+								</a>
+							</li>
+							<li class="mx-2">
+								<a href="#">
+									<span class="fas fa-rss"></span>
+								</a>
+							</li>
+							<li class="mx-2">
+								<a href="#">
+									<span class="fab fa-vk"></span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 footer-grid-wthree-w3ls">
+					<div class="footer-title">
+						<h3>Get in touch</h3>
+					</div>
+					<div class="contact-info">
+						<h4>Location :</h4>
+						<p> El Hamma 6020, Tunisia</p>
+						<div class="phone">
+							<h4>Contact :</h4>
+							<p>Phone : +216 75 333 664</p>
+							<p>Email :
+								<a href="walidmahjoubi@gmail.com
+
+    ">walidmahjoubi@gmail.com
+
+    </a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 footer-grid-wthree-w3ls">
+					<div class="footer-title">
+						<h3>Quick Links</h3>
+					</div>
+					<ul class="links">
+						<li>
+							<a href="index.html">Home</a>
+						</li>
+						<li>
+							<a href="about.html">About</a>
+						</li>
+						<li>
+							<a href="404.html"></a>
+						</li>
+						<li>
+							<a href="pricing.html"></a>
+						</li>
+						<li>
+							<a href="contact.html">Contact Us</a>
+						</li>
+					</ul>
+					<ul class="links">
+						<li>
+							<a href="how.html"></a>
+						</li>
+						<li>
+							<a href="contact.html"></a>
+						</li>
+						<li>
+							<a href="employer_list.html"></a>
+						</li>
+					</ul>
+
+					<div class="clearfix"></div>
+				</div>
+				<div class="col-lg-3 footer-grid-wthree-w3ls">
+					<div class="footer-title">
+						<h3>Sign up for your offers</h3>
+					</div>
+					<div class="footer-text">
+						<p>By subscribing to our mailing list you will always get latest news and updates from us.</p>
+						<form action="#" method="post">
+							<input class="form-control" type="email" name="Email" placeholder="Enter your email..." required="">
+							<button class="btn2">
+								<i class="far fa-envelope" aria-hidden="true"></i>
+							</button>
+							<div class="clearfix"> </div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="copyright mt-4">
+				<p class="copy-right text-center ">&copy; Ghannouchi Olfa  
+					<a href="http://w3layouts.com/">Ennour</a>
+				</p>
+			</div>
+		</div>
+	</footer>
+	<!-- //footer -->
+
+	<!--model-forms-->
+	<!--/Login-->
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header text-center">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+					<div class="login px-4 mx-auto mw-100">
+						<h5 class="text-center mb-4">Login Now</h5>
+						<form action="#" method="post">
+							<div class="form-group">
+								<label class="mb-2">Email address</label>
+								<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="">
+								<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+							</div>
+							<div class="form-group">
+								<label class="mb-2">Password</label>
+								<input type="password" class="form-control" id="exampleInputPassword1" placeholder="" required="">
+							</div>
+							<div class="form-check mb-2">
+								<input type="checkbox" class="form-check-input" id="exampleCheck1">
+								<label class="form-check-label" for="exampleCheck1">Check me out</label>
+							</div>
+							<button type="submit" class="btn btn-primary submit mb-4">Sign In</button>
+							<p class="text-center pb-4">
+								<a href="#" data-toggle="modal2" data-target="#exampleModalCenter"> Don't have an account?</a>
+							</p>
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!--//Login-->
+	<!--/Register-->
+	<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header text-center">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="login px-4 mx-auto mw-100">
+						<h5 class="text-center mb-4">Register Now</h5>
+						<form action="#" method="post">
+							<div class="form-group">
+								<label>First name</label>
+
+								<input type="text" class="form-control" id="validationDefault01" placeholder="" required="">
+							</div>
+							<div class="form-group">
+								<label>Last name</label>
+								<input type="text" class="form-control" id="validationDefault02" placeholder="" required="">
+							</div>
+
+							<div class="form-group">
+								<label class="mb-2">Password</label>
+								<input type="password" class="form-control" id="password1" placeholder="" required="">
+							</div>
+							<div class="form-group">
+								<label>Confirm Password</label>
+								<input type="password" class="form-control" id="password2" placeholder="" required="">
+							</div>
+
+							<button type="submit" class="btn btn-primary submit mb-4">Register</button>
+							<p class="text-center pb-4">
+								<a href="#">By clicking Register, I agree to your terms</a>
+							</p>
+						</form>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!--//Register-->
+	
+{% endblock %}

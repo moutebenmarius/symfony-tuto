@@ -1,0 +1,56 @@
+{% extends 'coach/index.html.twig' %}
+
+{% block title %}Bienvenue !
+{% endblock %}
+
+{% block contenu %}
+	<div class="card">
+		<div class="card-header bg-primary text-white text-center">
+			Gestion des séances
+		</div>
+		<div class="card-body">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						{% for message in app.flashes('success') %}
+							<div class="alert alert-success">
+								{{ message }}
+							</div>
+						{% endfor %}
+
+						<div class="card-body mt-2 bg-primary m-2 text-center text-center text-white">Liste de mes séances</div>
+						<div class="card-body">
+							<a href="{{ path('planifier_seance') }}" class="btn btn-sm btn-primary mb-2">
+								<i class="fa-solid fa-timer"></i>
+
+								&nbsp;Planifier une seance</a>
+							<table class="table">
+								<thead>
+									<tr>
+										<th>Date</th>
+										<th>Nombre d'adhérents</th>
+										<th>Nombre de réservations</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+								{% for seance in seances %}
+									<tr>
+										<td>{{ seance.dateSeance | date('d-m-Y H:i') }}</td>
+										<td>{{ seance.limitAdherent}}</td>
+										<td>{{ seance.reservations | length}}</td>
+										<td>
+											<a href="{{ path('annuler_seance',{'id':seance.id}) }}" class="btn btn-sm btn-danger">annuler</a>
+										</td>
+									</tr>
+								{% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+{% endblock %}

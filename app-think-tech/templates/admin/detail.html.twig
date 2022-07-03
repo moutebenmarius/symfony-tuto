@@ -1,0 +1,62 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}solution index{% endblock %}
+
+{% block dynamic %}
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+          </div>
+         
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            
+            <!-- /.card -->
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Détail du commande</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+              <div class="row">
+                    <div class="col-md-12">
+                        <ul class="list-group">
+                            <li class="list-group-item"><h5>Nom : {{ commande.client.nom }}</h5></li>
+                            <li class="list-group-item"><h5>Prénom : {{ commande.client.prenom }}</h5></li>
+                            <li class="list-group-item"><h5>Adresse : {{ commande.client.adresse }}</h5></li>
+                            <li class="list-group-item"><h5>Téléphone : {{ commande.client.telephone }}</h5></li>
+                             <li class="list-group-item"><h5>Solution: {{ commande.solution.titre }}</h5></li>
+                               <li class="list-group-item"><h5>Prix: {{ commande.solution.prix }} TND</h5></li>
+                               <li class="list-group-item"><h5>QTE: {{ commande.qte }}</h5></li>
+                                <li class="list-group-item"><h5>Prix Total: {{ commande.prixTotal }} TND</h5></li>
+                        </ul>
+                    </div>
+              </div>
+            <a style="text-decoration: underline;" href="{{ path('gerer_commandes') }}">Retour</a>
+               
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  
+{% endblock %}

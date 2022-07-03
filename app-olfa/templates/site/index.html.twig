@@ -1,0 +1,188 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SiteController!{% endblock %}
+
+{% block body %}
+<!-- banner-inner -->
+    <div id="demo-1" data-zs-src='["{{ asset('assets-site/images/E.png') }}", "{{ asset('assets-site/images/z.jpg')}}","{{ asset('assets-site/images/c.jpg') }}", "{{ asset('assets-site/images/s.png') }}"]' data-zs-overlay="dots">
+        <div class="demo-inner-content">
+            <div class="header-top">
+                <header>
+                    <div class="top-head ml-lg-auto text-center">
+                        <div class="row">
+
+                          
+                            <div class="col-md-3 sign-btn">
+                                <a href="{{ path('app_login') }}">
+                                    <i class="fas fa-lock"></i> Account</a>
+                            </div>
+                            
+                           
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="logo">
+                            <h1>
+                                <a class="navbar-brand" href="index.html">
+                                    <i class="fas fa-graduation-cap"></i> ENNOUR</a>
+                            </h1>
+                        </div>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon">
+                                <i class="fas fa-bars"></i>
+                            </span>
+
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-lg-auto text-center">
+                                <li class="nav-item active" id="idHome">
+                                    <a class="nav-link" id="aHome" href="{{ path('app_site') }}" onclick="colorMe">Home
+                                        <span class="sr-only">(current)</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item" id="idAbout">
+                                    <a class="nav-link" id="aAbout" onclick="colorMe" href="{{ path('app_about') }}">About</a>
+                                </li>
+                            
+                                <li class="nav-item" id="idContact">
+                                    <a class="nav-link" id="aContact" onclick="colorMe" href="{{ path('app_contact') }}">Contacts</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </nav>
+                </header>
+            </div>
+  
+        </div>
+    </div>
+    <!-- banner-text -->
+
+
+  
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!--/stats-->
+    <section class="banner-bottom-wthree bg-dark dotts py-lg-5 py-3">
+        <div class="container">
+            <div class="inner-sec-w3ls py-lg-5  py-3">
+                <h3 class="tittle cen text-center mb-lg-5 mb-3">
+                    <span>Some Info</span> ENNOUR PROGRESS</h3>
+                <div class="stats row mt-5">
+                    <div class="col-md-3 stats_left counter_grid text-center">
+
+                        <p class="counter">3</p>
+
+                        <h4></h4>
+                        <h4> Person of Administration</h4>
+                    </div>
+                    <div class="col-md-3 stats_left counter_grid1 text-center">
+
+                        <p class="counter">44</p>
+                        <h4></h4>
+                        <h4>Teachers</h4>
+                    </div>
+                    <div class="col-md-3 stats_left counter_grid2 text-center">
+
+                        <p class="counter">318</p>
+
+                        <h4></h4>
+                        <h4>Students</h4>
+                    </div>
+                    <div class="col-md-3 stats_left counter_grid3 text-center">
+
+                        <p class="counter">82</p>
+                        <h4>%</h4>
+
+                        <h4>Success</h4>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--//stats-->
+
+    <!--model-forms-->
+    <!--/Login-->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="login px-4 mx-auto mw-100">
+                        <h5 class="text-center mb-4">Login Now</h5>
+                       
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--//Login-->
+    <!--/Register-->
+    <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="login px-4 mx-auto mw-100">
+                        <h5 class="text-center mb-4">Register Now</h5>
+                        <form action="#" method="post">
+                            <div class="form-group">
+                                <label>First name</label>
+
+                                <input type="text" class="form-control" id="validationDefault01" placeholder="" required="">
+                            </div>
+                            <div class="form-group">
+                                <label>Last name</label>
+                                <input type="text" class="form-control" id="validationDefault02" placeholder="" required="">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="mb-2">Password</label>
+                                <input type="password" class="form-control" id="password1" placeholder="" required="">
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input type="password" class="form-control" id="password2" placeholder="" required="">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary submit mb-4">Register</button>
+                            <p class="text-center pb-4">
+                                <a href="#">By clicking Register, I agree to your terms</a>
+                            </p>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--//Register-->
+
+
+    <!--//model-form-->
+    <!-- js -->
+    <!--/slider-->
+   
+    <!--//slider-->
+{% endblock %}

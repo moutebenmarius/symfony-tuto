@@ -1,0 +1,64 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block dynamic %}
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Détail Proviseur</h1>
+          </div>
+          
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Détail Proviseur</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+               {% for message in app.flashes('info') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+                {% if proviseur is null %}
+                  <div class="alert alert-info">Vous n'avez pas un proviseur veillez l'ajouter s'il vous plait par  <a class="bade badge-warning p-2" href="{{ path('ajouter_proviseur') }}">ici</a></div>
+                {% else  %}
+                 <ul class="list-group">
+                     <li class="list-group-item">CIN: {{ proviseur.cin }}</li>
+                    <li class="list-group-item">Nom: {{ proviseur.nom }}</li>
+                    <li class="list-group-item">Prénom: {{ proviseur.prenom }}</li>
+                    <li class="list-group-item">Date de naissance: {{ proviseur.dateNaissance | date('d-m-Y') }}</li>
+                    <li class="list-group-item">Genre: {{ proviseur.genre }}</li>
+                    <li class="list-group-item">Email: {{ proviseur.email }}</li>
+                    <li class="list-group-item">Numéro de téléphone: {{ proviseur.telephone }}</li>
+                </ul>
+                <a href="{{ path('modifier_proviseur', {'id':proviseur.id}) }}" type="submit" class="btn btn-sm btn-warning mt-2 btn-block">modifier </a>
+                <a href="{{ path('supprimer_proviseur', {'id':proviseur.id}) }}" type="submit" class="btn btn-sm btn-danger mt-2 btn-block">supprimer </a>
+
+                {% endif %}
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+{% endblock %}

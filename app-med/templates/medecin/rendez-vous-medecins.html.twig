@@ -1,0 +1,71 @@
+{% extends 'medecin/index.html.twig' %}
+{% block content %}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Mes rendez-vous</h1>
+          </div>
+          <div class="col-sm-6">
+           
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Liste de  rendez-vous</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>Prénom Patient</th>
+                    <th>Nom Patient</th>
+                    <th>Date rendez-vous</th>
+                   
+                    <th>Actions</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    {% for rendezvous in mesrdv %}
+                  <tr>
+                    <td>{{ rendezvous.patient.prenom }}</td>
+                    <td>{{ rendezvous.patient.nom }}</td>
+                   <td>{{ rendezvous.dateRendezvous|date("d-m-Y") }}</td>
+                    
+                    <td>
+                        <a href="{{ path('confirmer_rendez_vous', {'id': rendezvous.id}) }}" class="btn btn-info">confirmer</a>
+                        <a href="{{ path('refuser_rdv', {"id": rendezvous.id}) }}" class="btn btn-danger">réfuser</a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                  </tbody>
+                
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+           
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'medecin/index.html.twig' %}
+{% block content %}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Mes Consultations</h1>
+          </div>
+          <div class="col-sm-6">
+          
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Liste de  consultations</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>Prénom Patient</th>
+                    <th>Nom Patient</th>
+                    <th>Date Rendez-vous</th>
+                   <th>Etat</th>
+                    <th>Actions</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    {% for consultation in consultations %}
+                    
+                  <tr>
+                    <td>{{ consultation.patient.prenom }}</td>
+                    <td>{{ consultation.patient.nom }}</td>
+                   <td>{{ consultation.dateRendezvous|date("d-m-Y") }}</td>
+                    <td>{{ consultation.status }}</td>
+                    <td>
+                    {% if consultation.status == "confirme" and consultation.dateRendezvous | date('d-m-Y') == currentDate | date('d-m-Y') %}
+                         <a href="{{ path('consultation', {'id': consultation.id}) }}" class="btn btn-sm btn-success">Demarrer consultation</a>
+                    {% elseif consultation.status == "termine"  %}
+                        Consultation terminé
+                    {% else %}
+                        --
+                    {% endif %}
+                    </td>
+                  </tr>
+                  {% endfor %}
+                  </tbody>
+                
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+           
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+          
+          </div>
+          
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+
+              <div class="card-header">
+                <h3 class="card-title">Evaluer votre enseignants</h3>
+                <a class="btn btn-sm btn-primary" href="{{ path('app_logout') }}">Déconnexion</a>
+              </div>
+               <div class="card-body">
+                 
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                <th>Matière</th>
+                    <th>Actions</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                {% for d in data %}
+                
+                  <tr>
+                    <td>{{ d['enseignant'].nom }}</td>
+                    <td>{{ d['enseignant'].prenom }}</td>
+                      <td>{{ d['matiere'].libelle }}</td>
+                    <td>
+                       
+                        <a href="{{ path('evaluer_enseignant_matiere', {'id': d['enseignant'].id}) }}" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>&nbsp;
+                    </td>
+                    
+                  </tr>
+                  {% endfor %}
+                  </tbody>
+                  
+                </table>
+               
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+           
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+{% endblock %}

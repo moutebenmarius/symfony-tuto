@@ -1,0 +1,75 @@
+
+
+{% extends 'proviseur/index.html.twig' %}
+
+{% block dynamic %}
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Gestion des cahiers</h1>
+          </div>
+          
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+
+              <div class="card-header">
+                <h3 class="card-title">Liste des matieres</h3>
+              </div>
+               
+              <!-- /.card-header -->
+              <div class="card-body">
+                
+  <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Classe</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cahier_texte in cahier_textes %}
+            <tr>
+                
+                <td>{{ cahier_texte.classe.section.section }} {{ cahier_texte.classe.niveau.niveau }}</td>
+                <td>
+                    <a href="{{ path('app_cahier_texte_edit', {'id': cahier_texte.id}) }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                    <a href="{{ path('archiver_cahier', {'id': cahier_texte.id}) }}" class="btn btn-danger"><i class="fa fa-archive"></i></a>&nbsp;
+                    <a href="{{ path('consulter_partie_matiere', {'id': cahier_texte.id}) }}" class="btn btn-info">partie matiere</a>&nbsp;
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">aucun resultat trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+           
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+{% endblock %}

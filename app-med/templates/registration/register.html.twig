@@ -1,0 +1,64 @@
+{% extends 'site/index.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+   <div class="uni-contact-us">
+    <div id="wrapper-container" class="site-wrapper-container">
+      
+
+        <div id="main-content" class="site-main-content">
+            <section class="site-content-area">
+
+                <div class="uni-banner-default uni-background-1">
+                    <div class="container">
+                        <!-- Page title -->
+                        <div class="page-title">
+                            <div class="page-title-inner text-center">
+                                <h1 class="">Inscription</h1>
+                            </div>
+                        </div>
+                        <!-- End page title -->
+
+                        <!-- Breadcrumbs -->
+                       
+                        <!-- End breadcrumbs -->
+                    </div>
+                </div>
+
+                <div class="uni-contact-us-body">
+                    <!--MAP-->
+                 
+                    <div class="uni-contact-us-body-content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <a href="{{ path('inscription_patient') }}" class="btn btn-primary btn-block"><i class="fa fa-user fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;Inscription Patient</a>
+                                    </div>
+                                     <div class="form-group">
+                                        <a href="{{ path('inscription_medecin') }}" class="btn btn-primary btn-block"><i class="fa fa-user-md fa-2x"></i>&nbsp;&nbsp;Inscription Médecin</a>
+                                    </div>
+                                     <div class="form-group">
+                                        <a href="{{ path('inscription_pharmacie') }}" class="btn btn-primary btn-block"><i class="fa fa-medkit fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;Inscription Pharmacie</a>
+                                    </div>
+                                     <div class="form-group">
+                                        <a href="{{ path('inscription_labo') }}" class="btn btn-primary btn-block"><i class="fa fa-flask fa-2x"></i>&nbsp;&nbsp;Inscription Laboratoire</a>
+                                    </div>
+                                     <div class="form-group">
+                                        <a href="{{ path('inscription_centre') }}" class="btn btn-primary btn-block"><i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;Inscription Centre d'imagérie médicale</a>
+                                    </div>
+                                </div>
+                               
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
